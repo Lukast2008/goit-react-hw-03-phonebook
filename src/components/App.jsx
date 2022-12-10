@@ -18,9 +18,13 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    this.setState({
+    if ([...JSON.parse(localStorage.getItem('phoneList'))] !== []) {
+      this.setState({
       contacts: [...JSON.parse(localStorage.getItem('phoneList'))],
     });
+
+    }
+    
   }
   componentDidUpdate(prevProps) {
     if (prevProps.contact !== this.state.contacts) {
