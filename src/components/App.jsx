@@ -9,6 +9,7 @@ export class App extends Component {
   state = {
     contacts: [],
     filter: '',
+    hasError: false,
   };
 
   deleteContact = id => {
@@ -18,18 +19,22 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    if (localStorage.getItem('phoneList') !== []) {
+    if (localStorage.length) {
       this.setState({
-      contacts: JSON.parse(localStorage.getItem('phoneList')),
-    });
-
-    }
-    
+        contacts: JSON.parse(localStorage.getItem('phoneList')),
+      });
+    } 
   }
   componentDidUpdate(prevProps) {
     if (prevProps.contact !== this.state.contacts) {
       localStorage.setItem('phoneList', JSON.stringify(this.state.contacts));
     }
+  }
+
+
+  componentDidCatch(error, info) {
+  this.setState({ hasError: true });
+    console.log("FACK")
   }
 
   filterContacts = () => {
