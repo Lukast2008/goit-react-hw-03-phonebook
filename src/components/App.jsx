@@ -63,7 +63,7 @@ export class App extends Component {
         <h2 className={styles.title}>Contacts</h2>
         <FilterContacts filter={this.state.filter} onChange={this.onChange} />
         <ContactList
-          contact={this.filterContacts}
+          contact={this.filterContacts()}
           contactDelete={this.deleteContact}
         />
       </div>
