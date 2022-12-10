@@ -1,0 +1,87 @@
+.container {
+  text-decoration: none;
+  margin: 0 auto;
+  width: 1280px;
+  height: 100%;
+  background-color: darkslategray;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+}
+
+.formstyle {
+  margin: 0 auto;
+  display: block;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bodyform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 200px;
+  padding-top: 30px;
+  font-weight: 600;
+}
+
+.inputItem {
+  height: 30px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.inputItemFind {
+  height: 30px;
+  width: 250px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+.buttonstles {
+  width: 180px;
+  height: 30px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.list {
+  text-decoration: none;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  font-size: 25px;
+  padding: 0;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  background-color: darkcyan;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.listButton {
+  width: 80px;
+  height: 30px;
+  padding: 5px;
+}
