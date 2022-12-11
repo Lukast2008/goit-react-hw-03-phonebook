@@ -10,32 +10,34 @@ export class App extends Component {
     contacts: [],
     filter: '',
     hasError: false,
+    phoneList: 'phoneList',
   };
+
+  componentDidCatch(error, info) {
+    this.setState({ hasError: true });
+  }
+
+  componentDidMount() {
+    if (localStorage.length) {
+      this.setState({
+        contacts: JSON.parse(localStorage.getItem(this.state.phoneList)),
+      });
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.contact !== this.state.contacts) {
+      localStorage.setItem(
+        this.state.phoneList,
+        JSON.stringify(this.state.contacts)
+      );
+    }
+  }
 
   deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contacts => contacts.id !== id),
     }));
   };
-
-  componentDidMount() {
-    if (localStorage.length) {
-      this.setState({
-        contacts: JSON.parse(localStorage.getItem('phoneList')),
-      });
-    } 
-  }
-  componentDidUpdate(prevProps) {
-    if (prevProps.contact !== this.state.contacts) {
-      localStorage.setItem('phoneList', JSON.stringify(this.state.contacts));
-    }
-  }
-
-
-  componentDidCatch(error, info) {
-  this.setState({ hasError: true });
-    console.log("FACK")
-  }
 
   filterContacts = () => {
     return this.state.contacts.filter(el => {
